@@ -9,9 +9,9 @@ class String
 
 	def every_other_char
   		arr = ''
-  		each_char.with_index do |x, i|
-    		if i % 2 == 0
-    			arr << x
+  		each_char.with_index do |char, index|
+    		if index % 2 == 0
+    			arr << char
     		end
   		end
   		arr	
