@@ -3,3 +3,8 @@
 #
 # reverse_map(1, 2, 3) { |i| i * 2 }      # => [6, 4, 2]
 
+def reverse_map(*args,&block) # *args takes all passed arguments &block takes the block
+	args.reverse.map(&block) # map and do this the block that was passed
+end
+
+
