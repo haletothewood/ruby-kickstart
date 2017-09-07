@@ -20,53 +20,51 @@
 # Add any additional methods you find helpful.
 
 class BeerSong
-	attr_accessor 'num'
+	attr_accessor :beers
 
-	def intialize(num)
-		if num < 0
-			num = 0
-		elsif num > 99
-			num = 99
-		else
-			self.num = num
-		end
+	def initialize(beers)
+		beers = 0  if beers < 0
+    	beers = 99 if beers > 99
+    	self.beers = beers
 	end
 
 	def print_song
-		num.downto 1 do |i|
+		beers.downto 1 do |i|
 		stanza(i)
 		end
 	end
 
 	def stanza(i)
 		if i == 0
-      		return ""
+			return ""
 		else
 			puts "#{num_to_eng(i)} #{bottle(i)} of beer on the wall,"
-        	puts "#{num_to_eng(i)} #{bottle(i)} of beer,"
-        	puts "Take one down, pass it around,"
-        	puts "#{num_to_eng(i-1)} #{bottle(i-1)} of beer on the wall."
-        end
+			puts "#{num_to_eng(i)} #{bottle(i)} of beer,"
+			puts "Take one down, pass it around,"
+			puts "#{num_to_eng(i-1)} #{bottle(i-1)} of beer on the wall."
+		end
 	end
 
 	def bottle(i)
-    	i == 1 ? 'bottle' : 'bottles'
-  	end
+		i == 1 ? 'bottle' : 'bottles'
+	end
 
 	def num_to_eng(n)
-    	singles = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
-    	teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
-    	tens = ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
-    	ones = ["", "-one", "-two", "-three", "-four", "-five", "-six", "-seven", "-eight", "-nine"]
+		singles = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+		teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+		tens = ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+		ones = ["", "-one", "-two", "-three", "-four", "-five", "-six", "-seven", "-eight", "-nine"]
 
-    	if n < 10
-      		n == 1 ? singles[n] : singles[n]
-    	elsif n < 20
-      		return teens[n % 10]
-    	else
-      		return tens[n / 10 - 2] + singles[n % 10]
-    	end
-  	end
+		if n < 10
+			n == 1 ? singles[n] : singles[n]
+		elsif n < 20
+			return teens[n % 10]
+		else
+			return tens[n / 10 - 2] + ones[n % 10]
+		end
+	end
 
 end
+
+
 			
