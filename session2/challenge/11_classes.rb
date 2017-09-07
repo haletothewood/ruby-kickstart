@@ -18,3 +18,55 @@
 # if the parameter is greater than 99, set the number of beer bottles to 99
 # Then make a public method called print_song that outputs all stanzas from the number of bottles of beer down to zero.
 # Add any additional methods you find helpful.
+
+class BeerSong
+	attr_accessor 'num'
+
+	def intialize(num)
+		if num < 0
+			num = 0
+		elsif num > 99
+			num = 99
+		else
+			self.num = num
+		end
+	end
+
+	def print_song
+		num.downto 1 do |i|
+		stanza(i)
+		end
+	end
+
+	def stanza(i)
+		if i == 0
+      		return ""
+		else
+			puts "#{num_to_eng(i)} #{bottle(i)} of beer on the wall,"
+        	puts "#{num_to_eng(i)} #{bottle(i)} of beer,"
+        	puts "Take one down, pass it around,"
+        	puts "#{num_to_eng(i-1)} #{bottle(i-1)} of beer on the wall."
+        end
+	end
+
+	def bottle(i)
+    	i == 1 ? 'bottle' : 'bottles'
+  	end
+
+	def num_to_eng(n)
+    	singles = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    	teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+    	tens = ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+    	ones = ["", "-one", "-two", "-three", "-four", "-five", "-six", "-seven", "-eight", "-nine"]
+
+    	if n < 10
+      		n == 1 ? singles[n] : singles[n]
+    	elsif n < 20
+      		return teens[n % 10]
+    	else
+      		return tens[n / 10 - 2] + singles[n % 10]
+    	end
+  	end
+
+end
+			
