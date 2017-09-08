@@ -20,15 +20,27 @@
 
 def hi_hi_goodbye
   puts 'Enter a number: '
-  while (line = gets) && (line != 'bye')
+  while (true)
+  	line = gets.chomp
+    break if line == 'bye'
     puts "hi " * line.to_i
     puts 'Enter a number: '
   end
   puts "Goodbye!"
 end
 
+#using line = gets from the Makers solution
 
-
+=begin
+def hi_hi_goodbye
+  puts 'Enter a number: '
+  while (line = gets) && (line != 'bye')
+    puts "hi " * line.to_i
+    puts 'Enter a number: '
+  end
+  puts "Goodbye!"
+end
+=end
 
 # This will just invoke the method if you run this program directly
 # This way you can try it out by running "$ ruby 2_input_output_control.rb" 
