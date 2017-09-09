@@ -17,3 +17,22 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(boolean, *elements)
+	array = []
+	elements.each_slice 2 do |first, last|
+		first  = !!first # creates a boolean value for first
+    	last   = !!last # same for last
+    	# this is so we can compare nil, 0, and false the same way
+		if first == last && boolean
+			array << false
+		elsif first == last && !boolean
+			array << true
+		elsif first != last && boolean
+			array << true 
+		else
+			array << false
+		end
+	end
+	array
+end
+
