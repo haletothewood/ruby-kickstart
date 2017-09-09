@@ -30,5 +30,7 @@
 # end
 
 
-def array_init
+def array_init(size=5, &block) # default size is 5
+	block ||= Proc.new { |i| (100 * i).to_s } # if no block is passed default to this Proc
+	Array.new(size, &block) # initialize the array
 end
