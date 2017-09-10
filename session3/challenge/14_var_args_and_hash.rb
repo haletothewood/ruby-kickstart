@@ -31,7 +31,7 @@ def problem_14(*params)
 end
 
 def same_ends(n, *params) # n is the number of elements to check at the beginning and end
-	params[0, n] == params[-n, n] #
+	params[0, n] == params[-n, n] # comparing n amount of start and end elements
 end
 
 def count_clumps(*params)
@@ -40,9 +40,9 @@ def count_clumps(*params)
 	two_before = nil
 
 	params.each do |num|
-		clumps += 1 if (previous == num) and (previous != two_before)
-		two_before = previous
+		clumps += 1 if (previous == num) and (previous != two_before) # checks if series of two or more is the same and adds to counter
+		two_before = previous # moves along the array
 		previous = num
 	end
-	clumps
+	clumps # returns amount of clumps
 end
