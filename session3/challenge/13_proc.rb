@@ -53,9 +53,9 @@
 # end       # => ["a", "m", "r", 1, 3, 4, 9, 2.5, 9.0, 25.8]
 
 def your_sort(arr, &sort)
-	sort ||= Proc.new { |a, b| a <=> b }
+	sort ||= Proc.new { |a, b| a <=> b } # this means pass the sort block or default to the Proc given
 
-	arr.each_index do |i|
+	arr.each_index do |i| 
 		arr.each_index do |i2|
 			order = sort.call(arr[i], arr[i2])
 			if order < 0
