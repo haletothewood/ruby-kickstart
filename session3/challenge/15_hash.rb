@@ -38,3 +38,41 @@
 # middle head                        # => 3
 # head = {:data => 6, :next => head}
 # middle head                        # => 3
+
+
+def list_size(list)
+	arr = []
+	while list
+		arr << list[:head]
+		list = list[:next]
+	end
+	arr.length
+end
+
+def middle(list, length=list_size(list)/2) 
+	return list[:data] if length == 0
+	middle(list[:next], (length - 1))
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
