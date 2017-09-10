@@ -15,3 +15,9 @@
 # head = {:data => 6, :next => head}
 # print_list head                    # >> "6\n5\n4\n3\n2\n1\n"
 
+def print_list(list) 
+	while list # once all linked list items have been printed list == nil so while loop stops
+		puts list[:data] # This will print the value ofthe :data key
+		list = list[:next] # This will jump to the next link in the list
+	end
+end
